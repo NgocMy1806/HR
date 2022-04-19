@@ -1,6 +1,7 @@
 table {
     border-collapse: collapse;
     width: 100%;
+    overflow: auto;
    }    
 tbody tr:hover {background-color: #b1cee9;} 
 tr{ 

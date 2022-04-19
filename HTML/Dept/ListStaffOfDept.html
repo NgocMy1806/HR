@@ -7,10 +7,12 @@
     <title>Document</title> <!--sau cần sửa title để có thể truyền đc vào tên dept đang mở-->
     <link rel="stylesheet" href="../../CommonCSS/table.css">
     <link rel="stylesheet" href="../../CommonCSS/button.css">
+    <link rel="stylesheet" href="../../CommonCSS/CommonElement.css">
     <style>
         .center {
             width: 50%;
             margin: auto;
+            
         }
             
         .search{
@@ -41,9 +43,9 @@
         </div>
     </div>
 
-    <div style="float: right; display: flex;">
+    <div style="float: right; ">
         <button class="action1" name="movestaff" style="margin: 5px;">Move staff of other dept to here</button>
-        <button class="add" name="addstaff"style="margin: 5px;">Add staff</button>
+        
     </div>
 
     <div>
@@ -110,6 +112,119 @@
                
             </tbody>
         </table>
+    </div>
+
+    <div class="medium_model">
+        <div class="modal_header">
+            <h2>Move staff to other department</h2>
+            <hr>
+        </div>
+        <div class="modal_content">
+            <select class="dept" name="dept">
+                <option value="tester">Tester</option>
+            </select>
+            <div class="modal_button">
+                <button class="cancel ">Cancel</button>
+                <button class="action2 ">Move</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="big_model">
+        <div class="modal_header">
+            <h2>Move staff of other dept to here</h2>
+            <hr>
+        </div>
+        <div class="modal_content">
+            <select id="dept" name="dept" required>
+                <option value="" disabled selected>Choose department</option>
+                <option value="1">Depvelopement</option>
+                <option value="2">Tester</option>
+                <option value="3">HR</option>
+            </select> 
+            <!-- <div class="search"> -->
+            <input type="search"  class = "searchframe" name="search" placeholder="Search"  style="width: 45%;">
+            <!-- thêm logic điều kiện hiển thị nd sau -->
+                <div class="display">
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width:3%;"><input type="checkbox" class="check-all" ></th>
+                                    <th style="width: 5%;">ID</th>
+                                    <th style="width: 25%;">Name </th>
+                                    <th style="width: 15%;">E-Mail</th>
+                                    <th style="width: 15%;">Role</th>
+                                    <th style="width: 15%;">Status</th>
+                            
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="check"></td>
+                                    <td>1</td>
+                                    <td>Tran A</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>Manager</td>
+                                    <td>
+                                        <label for="status"></label>
+                                        <select class="status" name="status">
+                                          <option value="1">Working</option>
+                                          <option value="2">On leave</option>
+                                          <option value="3">Retired</option>
+                                        </select>    
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="check"></td>
+                                    <td>3</td>
+                                    <td>Tran B</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>Sub Manager</td>
+                                    <td>
+                                        <label for="status"></label>
+                                        <select id="status" name="status">
+                                          <option value="1">Working</option>
+                                          <option value="2">On leave</option>
+                                          <option value="3">Retired</option>
+                                        </select>    
+                                    </td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="check"></td>
+                                    <td>10</td>
+                                    <td>Tran C</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>Staff</td>
+                                    <td>
+                                        <label for="status"></label>
+                                        <select id="status" name="status">
+                                          <option value="1">Working</option>
+                                          <option value="2">On leave</option>
+                                          <option value="3">Retired</option>
+                                        </select>    
+                                    </td>
+                                </tr>   
+                            </tbody>
+                        </table>
+                    </div>
+                  <!--   <script>
+                        document.getElementByClass('check-all').onclick = function() {
+  var checkboxes = document.getElementsByClass('check');
+  for (var checkbox of checkboxes) {
+    checkbox.checked = this.checked;
+  }
+}
+                    </script> -->
+                </div>
+
+            <div class="modal_button">
+                <button class="cancel ">Cancel</button>
+                <button class="action2 ">Move</button>
+            </div>
+        </div>
     </div>
 
 </body>

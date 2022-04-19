@@ -1,19 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+
+/* sidebar */
+.sidebar {
+    background-color: rgb(15, 53, 119);
+    width: 12%;
+    height: 100%;
+    float: left;
+    color: white;
+    top: 50px;
+    position: fixed;  
+    overflow: auto;   
+    box-sizing: border-box; 
+    margin:0;    
+  
+}
+
+ul {
+    list-style: none;
+}
+li>a {
+color: white;
+display: block;
+padding: 8px 16px;
+text-decoration: none;
+}
+li>a.active {
+background-color: #0846c4;
+color: white;
+}
+li>a:hover:not(.active) {
+background-color: rgb(127, 174, 236);
+color: white;
+}
+
+/* main content */
+.container {
+    
+    top:  55px;
+    width: 100%;
+    box-sizing: border-box;  
+}
+.container::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.content_area {
+    width: 86%;
+    float: right;
+    margin: 0;
+    box-sizing: border-box;  
+    top:55px;
+    left: 13%;
+    position: absolute;
+
+}
+
+
+/* search */
+
 .search{
     width: 50%;
     margin: auto;
  }
  
  .searchframe {
-     width:75%;
+     width:80%;
      padding: 5px 10px;
      border:1px solid #dee2ed;
      border-radius: 5px;
+     margin: auto;
  }
 
-nav a:link , a:visited{
-    color:white;
-    text-decoration: none;
+
+/* form */
+form{
+    line-height: 1.5;
 }
-nav a:hover{
-    color: white;
+
+/*modal */
+.big_modal {
+    width: 50%;
+    margin: auto;
+    border: #407df7 solid;
+    /* làm sao để set khi mở modal thì background của MH lớn sẽ thành grey? */
+    }
+.modal_title {
+    font-weight: bold ;
+    
+}
+.modal_button{
+    display: flex;
+    justify-content: center;  
+}
+.modal_button > button {
+    margin: 10px;
+}
+
+.modal_content > form> label.L1{
+    width: 200px;
+   
+    display: inline-block;
+    padding: 5px, auto; /* tại sao ko ăn padding nhỉ, làm sao để cho khoảng cách to ra? */
+}
+
+
+.medium_modal {
+    border: #407df7 solid;
+    width: 30%;
+    margin: auto;
 }

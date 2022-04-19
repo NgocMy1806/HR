@@ -15,18 +15,22 @@ button {
 .save, .login {
     background-color: #166af0;
     color: white;
-    display:block;
-     
-    
+    display:block;    
     }
+
 .edit {
     background-color: rgb(253, 174, 99);
 }
 .delete, .cancel {
     background-color: #ccd0d5;
 }
+.modal_button .delete{
+    background-color: rgb(197, 32, 32);
+    color: white;
+}
 .searchbutton{
     background-color: #dee2ed;
+
 }
 
 .action1{
@@ -37,4 +41,8 @@ button {
 .action2 {
     background-color: #a3e6d0;
     
+}
+
+.logout {
+    background: white;
 }
