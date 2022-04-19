@@ -1,0 +1,14 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+   }    
+tbody tr:hover {background-color: #b1cee9;} 
+tr{ 
+   border-bottom: 1px solid #dee2ed;
+   padding: 10px;
+   line-height: 2; 
+}        
+thead {
+   text-align: left;
+   background-color: #069beb;
+   color: white;}

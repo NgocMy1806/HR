@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href ="../../CommonCSS/table.css">
+    <link rel ="stylesheet" href="../../CommonCSS/button.css">
+    <link rel ="stylesheet" href="../../CommonCSS/CommonElement.css">
+</head>
+<body>
+    <div class="search">
+        <input type="search"  class = "searchframe" name="search" placeholder="Search" >
+        <button type="button" class="searchbutton" name="searchbutton">Search</button>
+    </div>
+    <div >
+        <form style="width:100%; margin: 10px auto"><!-- tại sao dùng form thì nó ko thành 1 hàng? -->
+            <input type="text" name = "rolename" required placeholder="Input role name" style="display:inline;width: 70%;">
+            <button type="button" class="add" style="display: inline; float:right;">Add role</button>
+        </form>
+    </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Role name</td>
+                        <td style="width:10%"; >Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CEO</td>
+                        <td><button class="delete">Delete</button> </td>
+                    </tr>
+                    <tr>
+                        <td>Manager</td>
+                        <td><button class="delete">Delete</button> </td>
+                    </tr>
+                    <tr>
+                        <td>Staff</td>
+                        <td><button class="delete">Delete</button> </td>
+                    </tr>
+                    <tr>
+                        <td>V.Manager</td>
+                        <td><button class="delete">Delete</button> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

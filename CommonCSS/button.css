@@ -1,0 +1,40 @@
+button {
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: transparent;
+    border:1px;
+}
+.add {
+    background-color: #166af0;
+    color: white;
+    display:block;
+    margin-left: auto;
+    margin-right: 0px;  
+   
+    }
+.save, .login {
+    background-color: #166af0;
+    color: white;
+    display:block;
+     
+    
+    }
+.edit {
+    background-color: rgb(253, 174, 99);
+}
+.delete, .cancel {
+    background-color: #ccd0d5;
+}
+.searchbutton{
+    background-color: #dee2ed;
+}
+
+.action1{
+    background-color: rgb(246 140 61);
+    color: white;
+}
+
+.action2 {
+    background-color: #a3e6d0;
+    
+}

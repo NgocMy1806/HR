@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!--sau cần sửa title để có thể truyền đc vào tên dept đang mở-->
+    <link rel="stylesheet" href="../../CommonCSS/table.css">
+    <link rel="stylesheet" href="../../CommonCSS/button.css">
+    <style>
+        .center {
+            width: 50%;
+            margin: auto;
+        }
+            
+        .search{
+            width: 100%;
+        }
+        
+        .searchframe {
+            width:75%;
+            padding: 5px 10px;
+            border:1px solid #dee2ed;
+            border-radius: 5px;
+        }
+             
+        div {
+            margin: 5px 5px 5px 5px;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+
+    <div class="center">
+        <div class="search">
+            <input type="search"  class = "searchframe" name="search" placeholder="Search" >
+            <button type="button" class="searchbutton" name="searchbutton">Search</button>
+        </div>
+    </div>
+
+    <div style="float: right; display: flex;">
+        <button class="action1" name="movestaff" style="margin: 5px;">Move staff of other dept to here</button>
+        <button class="add" name="addstaff"style="margin: 5px;">Add staff</button>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 5%;">ID</th>
+                    <th style="width: 25%;">Name </th>
+                    <th style="width: 15%;">E-Mail</th>
+                    <th style="width: 15%;">Role</th>
+                    <th style="width: 15%;">Status</th>
+                    <th style="width: 13%;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Tran A</td>
+                    <td>abc@gmail.com</td>
+                    <td>Manager</td>
+                    <td>
+                        <label for="status"></label>
+                        <select class="status" name="status">
+                          <option value="1">Working</option>
+                          <option value="2">On leave</option>
+                          <option value="3">Retired</option>
+                        </select>    
+                    </td>
+                    <td><button class="action2" type="button">Move staff to other dept</button></td>
+                    <!--chưa set attri name cho button-->
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Tran B</td>
+                    <td>abc@gmail.com</td>
+                    <td>Sub Manager</td>
+                    <td>
+                        <label for="status"></label>
+                        <select id="status" name="status">
+                          <option value="1">Working</option>
+                          <option value="2">On leave</option>
+                          <option value="3">Retired</option>
+                        </select>    
+                    </td>
+                    <td><button class="action2" type="button">Move staff to other dept</button></td>
+                    <!--chưa set attri name cho button-->
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Tran C</td>
+                    <td>abc@gmail.com</td>
+                    <td>Staff</td>
+                    <td>
+                        <label for="status"></label>
+                        <select id="status" name="status">
+                          <option value="1">Working</option>
+                          <option value="2">On leave</option>
+                          <option value="3">Retired</option>
+                        </select>    
+                    </td>
+                    <td><button class="action2" type="button">Move staff to other dept</button></td>
+                    <!--chưa set attri name cho button-->
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../CommonCSS/button.css">
+    <link rel="stylesheet" href="../../CommonCSS/table.css">
+
+ <style>
+        .center {
+            width: 50%;
+            margin: auto;
+        }
+            
+        .search{
+            width: 100%;
+        }
+        
+        .searchframe {
+            width:75%;
+            padding: 5px 10px;
+            border:1px solid #dee2ed;
+            border-radius: 5px;
+        }
+             
+        div {
+            margin: 5px 5px 5px 5px;
+        }
+        .movestaffto{
+            background-color: rgb(246 140 61);
+            color: white;
+        }
+        .movestafffrom {
+            background-color: #a3e6d0;
+            
+        }
+       /* cách gõ cmt nhanh: ấn tổ hợp phím ctrl +shift+/ */
+        
+    </style>
+</head>
+<body>
+
+    <div class="center">
+        <div class="search">
+            <input type="search"  class = "searchframe" name="search" placeholder="Search" >
+            <button type="button" class="searchbutton" name="searchbutton">Search</button>
+        </div>
+    </div>
+
+    <div style="float: right; display: flex;">
+        <button class="action1" name="samplecsv" style="margin: 5px;">Download sample csv</button>
+        <button class="action2" name="uploadcsv" style="margin: 5px;">Upload csv</button>
+        <button class="add" name="addstaff"style="margin: 5px;">Add staff</button>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 5%;">ID</th>
+                    <th style="width: 25%;">Name </th>
+                    <th style="width: 15%;">E-Mail</th>
+                    <th style="width: 15%;">Department</th>
+                    <th style="width: 15%;">Role</th>
+                    <th style="width: 15%;">Status</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Tran A</td>
+                    <td>abc@gmail.com</td>
+                    <td>HR</td>
+                    <td>Manager</td>
+                    <td>
+                        <label for="status"></label>
+                        <select class="status" name="status">
+                          <option value="1">Working</option>
+                          <option value="2">On leave</option>
+                          <option value="3">Retired</option>
+                        </select>    
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Tran B</td>
+                    <td>abc@gmail.com</td>
+                    <td>HR</td>
+                    <td>Sub Manager</td>
+                    <td>
+                        <label for="status"></label>
+                        <select id="status" name="status">
+                          <option value="1">Working</option>
+                          <option value="2">On leave</option>
+                          <option value="3">Retired</option>
+                        </select>    
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Tran C</td>
+                    <td>abc@gmail.com</td>
+                    <td>Developement</td>
+                    <td>Staff</td>
+                    <td>
+                        <label for="status"></label>
+                        <select id="status" name="status">
+                          <option value="1">Working</option>
+                          <option value="2">On leave</option>
+                          <option value="3">Retired</option>
+                        </select>    
+                    </td>
+                  
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+    
+</html>
