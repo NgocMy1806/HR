@@ -12,6 +12,13 @@ button {
     margin-right: 0px;  
    
     }
+    .submit {
+        background-color: #166af0;
+        color: white;
+        display:block;
+        margin: auto; 
+       
+        }
 .save, .login {
     background-color: #166af0;
     color: white;

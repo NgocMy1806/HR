@@ -78,54 +78,30 @@
     </style>
 </head>
 <body>
+
+    <p>When you submit the form, a function is triggered which alerts some text.</p>
     
-    <h1>Bàn cờ vua</h1>
-    <pre>
-        8 ô chiều ngang và 8 ô chiều dọc 
-        gợi ý : position relative & absolute 
-        dùng top left bottom right
-    </pre>
+    <form action="/action_page.php" onsubmit="myFunction()">
+      Enter name: <input type="text" name="fname" id="name" onfocusout="checkrequired()">
+      <span id="validate-hoten" style="color: red;"></span>
 
-    <div class="container">
+      Note:  <textarea name="ghichu"></textarea>
+      <span id="validate-hoten" style="color: red;"></span>
 
-        <div class="cell cell1">
-            ô 1 
-        </div>
-
-        <div class="cell cell2">
-            ô 2
-        </div>
-
-        <div class="cell cell3">
-            ô 3 
-        </div>
-
-        <div class="cell cell4">
-            ô 4
-        </div>
-
-        <div class="cell cell5">
-            ô 5
-        </div>
-
-        <div class="cell cell6">
-            ô 6
-        </div>
-
-        <div class="cell cell7">
-            ô 7
-        </div>
-
-        <div class="cell cell8">
-            ô 8
-        </div>
-        <div class="cell cell9">
-            ô 9
-        </div>
-        <div class="cell cell10">
-            ô 10
-        </div>
-    </div>
-
-</body>
+      <input type="submit" value="Submit">
+    </form>
+    
+    <script>
+        function checkrequired(){
+            var a= document.getElementById("name").value;
+            if (a =""){
+                document.getElementById("validate-hoten").innerHTML="plz input name";
+            }
+        }
+    function myFunction3() {
+      alert("The form was submitted");
+    }
+    </script>
+    
+    </body>
 </html>

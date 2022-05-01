@@ -85,7 +85,7 @@ form{
 
 /*modal */
 .big_modal {
-    width: 50%;
+    width: 80%;
     margin: auto;
     border: #407df7 solid;
     /* làm sao để set khi mở modal thì background của MH lớn sẽ thành grey? */
@@ -102,14 +102,47 @@ form{
     margin: 10px;
 }
 
-.modal_content > form> label.L1{
-    width: 200px;
-   
-    display: inline-block;
-    padding: 5px, auto; /* tại sao ko ăn padding nhỉ, làm sao để cho khoảng cách to ra? */
+.modal_background {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    
+    background-color: rgba(0,0,0,0.4); 
 }
 
+/* Modal Content */
+.modal {
+background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+}
 
+form {
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+ form> label.L1{
+    width: 22%;
+    display: inline-block;    
+}
+form> .long_field {
+    width: 75%;
+    display: inline-block;    
+}
+
+.required:after {
+    content:" *";
+    color: red;
+  }
 .medium_modal {
     border: #407df7 solid;
     width: 30%;

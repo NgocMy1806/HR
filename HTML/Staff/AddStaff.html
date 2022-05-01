@@ -9,77 +9,124 @@
     <link rel="stylesheet" href="../../CommonCSS/button.css">
     <link rel="stylesheet" href="../../CommonCSS/CommonElement.css">
     <style>
-        label{
-            
-            width: 100px;
-
-        }
+       
         *{
             margin: 5px;
         }
-
-        .formadd{
-            width: 75%;
+        div {
+            margin: 5px 5px 5px 5px;
         }
+        header {
+            width:100%;
+            position: fixed;
+            height:50px;
+            display: block;
+            top:0;
+            background-color: #407df7;
+            z-index: 50;
+        }    
+        
+        /* .dropdown:hover .dropdown_content {
+            display: block;
+        
+        } */
+
+        .dropdown:hover  .logout {
+            display: block;
+        
+        }
+        
+        .dropdown{
+            position: relative;
+            width: 300px;
+            float: right;
+        }
+         .logout{
+            display: none;
+            position: absolute;
+            right:0;
+            top: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+        
+
     </style>
+    <script src="https://kit.fontawesome.com/19737dc617.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <header class="pageheader">
+        <div class="dropdown" >
+           <i class="fa-solid fa-user ava" id="ava" style="float: right;" onclick='document.getElementsByClassName("logout").style.display="inline-block"'>user name</i> 
+            <div class="dropdown_content"> 
+                <button class="logout" style="display: none;"> Logout</button> </div>
+           </div>
+        <script>
+            /* document.getElementsByClassName("ava").onclick=document.getElementsByClassName("logout").style.display="inline-block"; */
+            document.getElementsByClassName("ava").onclick=document.getElementsByClassName("L1").innerHTML="red";
+        </script>
+
+    </header>
     <div class="formadd" style="width: 100%;">
     <form action="/action_page.php" method ="post">
-        <label for="lastname">Lastname</label>
-        <input type="text" id="lastname" name="lastname" required autofocus><br>
+        <label class="L1 required" for="lastname">Lastname</label>
+        <input type="text" class="long_field" id="lastname" name="lastname" required autofocus><br>
 
-        <label for="firstname">Firstname</label>
-        <input type="text" id="firstname" name="firstname" required><br>
+        <label class="L1 required" for="firstname">Firstname</label>
+        <input type="text"  class="long_field" id="firstname" name="firstname" required><br>
 
-        <label for="gender">Gender</label>
+        <label class="L1 required" for="gender">Gender</label>
         <input type="radio" id="gender" name="gender" value="1" required> 
         <label for="gender">Male</label>
         <input type="radio" id="gender" name="gender" value="2" required>
         <label for="gender">Female</label><br>
 
-        <label for="dateofbirth">Date of birth</label>
-        <input type="date"  id="dateofbirth" name="dateofbirth" required><br>
+        <label class="L1 required"  for="dateofbirth">Date of birth</label>
+        <input type="date"   class="long_field" id="dateofbirth" name="dateofbirth" required><br>
 
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address" required><br>
+        <label class="L1 required" for="address">Address</label>
+        <input type="text"  class="long_field" id="address" name="address" required><br>
 
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required><br>
+        <label class="L1 required" for="email">E-mail</label>
+        <input type="email" class="long_field"  id="email" name="email" required><br>
 
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone" required><br>
+        <label class="L1 required" for="phone">Phone number</label>
+        <input type="tel"  class="long_field" id="phone" name="phone" required><br>
 
-        <label for="status">Status</label>
-            <select id="status" name="status" required>
+        <label class="L1 required" for="status">Status</label>
+            <select class="long_field"  id="status" name="status" required>
                 <option value="1">Working</option>
                 <option value="2">On leave</option>
                 <option value="3">Retired</option>
             </select> <br>   
         
-        <label for="dept">Department</label>
-            <select id="dept" name="dept" required>
+        <label class="L1 required" for="dept">Department</label>
+            <select  class="long_field" id="dept" name="dept" required>
                 <option value="" disabled selected>Choose department</option>
                 <option value="1">Depvelopement</option>
                 <option value="2">Tester</option>
                 <option value="3">HR</option>
             </select>   <br>
         
-        <label for="role">Role</label>
-            <select id="role" name="role" required>
+        <label class="L1 required" for="role">Role</label>
+            <select  class="long_field" id="role" name="role" required>
                 <option value="" disabled selected>Choose role</option>
                 <option value="1">Working</option>
                 <option value="2">On leave</option>
                 <option value="3">Retired</option>
             </select>   <br>
         
-        <label for="avatar">Avatar</label>
-        <input type="file" id="avatar" name="avatar" required><br>
+        <label class="L1" for="avatar">Avatar</label>
+        <input type="file"   id="avatar" name="avatar" required><br>
         
 
-        <input type="submit" value="Submit">
+        <button class="submit">Submit</button>
+       
       </form>
     </div>
+
+    
     
 </body>
 </html>

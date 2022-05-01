@@ -28,10 +28,10 @@
         
         } */
 
-        .dropdown:hover  .logout {
+        /* .dropdown:hover  .logout {
             display: block;
         
-        }
+        } */
         
         .dropdown{
             position: relative;
@@ -59,7 +59,7 @@
 <body>
     <header class="pageheader">
         <div class="dropdown" >
-           <i class="fa-solid fa-user ava" style="float: right;">user name</i> 
+            <i class="fa-solid fa-user ava" style="float: right;" onclick='getElementById("logout").style.display="block"'>user name</i> 
            <!-- <div class="dropdown_content"> -->
                 <button class="logout"> Logout</button> </div>
            <!-- </div> -->
@@ -129,21 +129,29 @@
                 </div>
                 <div class = "modal_content">
                     <form>
-                        <label class="L1" for="deptname">Department name</label>
-                        <input type = text id = "deptname" name ="deptname" placeholder="Input department name" required autofocus> <br>
+                        <label class="L1 required" for="deptname">Department name</label>
+                        <input type = text  class="long_field" id = "deptname" name ="deptname" placeholder="Input department name" required autofocus> <br>
 
-                        <label class="L1" for ="isParentDep"> Is parent department?</label>
+                        <label class="L1 required" for ="isParentDep"> Is parent department?</label>
                         <input type="radio" name = "isParentDep" id="isParentDep" value = "1" required>
                         <label  for="isParentDep" >Yes</label>
                         <input type="radio" name = "isParentDep" id="isParentDep" value = "2" required>
                         <label for="isParentDep" >No</label> <br>
 
-                        <label class="L1" for="chooseParentDep">Choose parent department</label>
-                        <select id="chooseParentDep" name="chooseParentDep"required></select> <br>
+                        <label class="L1" for="chooseParentDep">Choose parent dept</label>
+                        <select id="chooseParentDep" class="long_field"  name="chooseParentDep"required></select> <br>
 
-                        <label class="L1" for="rolename" >Role name</label>
+                        <label class="L1 required" for="rolename" >Role name</label>
                         <label for="rolelevel1">Level 1</label>
                         <select id="rolelevel1" name="rolelevel1" required></select> <!-- dropdown can input & search --> <br>
+                        <!--  kiểu drop down can input: <input list="browsers">
+  <datalist id="browsers">
+    <option value="Internet Explorer">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist> -->
                         <button class="add" style="float: right;">add next level</button> <br>
 
                         <div class="modal_button">

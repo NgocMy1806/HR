@@ -29,13 +29,35 @@
         div {
             margin: 5px 5px 5px 5px;
         }
-        
+       
         
         
     </style>
+    <!-- <script>
+      /*   // Get the modal
+        var modal = document.getElementById("modal_background");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("moveToOther");
+                
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+         */
+
+        </script> -->
 </head>
 <body>
+    <header class="pageheader">
+        <div class="dropdown" >
+                
+           <i class="fa-solid fa-user ava" style="float: right;" onclick='getElementById("logout").style.display="inline-block"'>user name</i> 
+           <!-- <div class="dropdown_content"> -->
+                <button class="logout" id="logout"> Logout</button> </div>
+           <!-- </div> -->
 
+    </header>
     <div class="center">
         <div class="search">
             <input type="search"  class = "searchframe" name="search" placeholder="Search" >
@@ -44,7 +66,7 @@
     </div>
 
     <div style="float: right; ">
-        <button class="action1" name="movestaff" style="margin: 5px;">Move staff of other dept to here</button>
+        <button class="action1" name="movestaff" style="margin: 5px;" onclick='getElementById("modal1").style.display = "block";'>Move staff of other dept to here</button>
         
     </div>
 
@@ -74,7 +96,7 @@
                           <option value="3">Retired</option>
                         </select>    
                     </td>
-                    <td><button class="action2" type="button">Move staff to other dept</button></td>
+                    <td><button class="action2" type="button" id="moveToOther" onclick='getElementById("modal_background").style.display = "block";'>Move staff to other dept</button></td>
                     <!--chưa set attri name cho button-->
                 </tr>
                 <tr>
@@ -114,115 +136,150 @@
         </table>
     </div>
 
-    <div class="medium_model">
-        <div class="modal_header">
-            <h2>Move staff to other department</h2>
-            <hr>
-        </div>
-        <div class="modal_content">
-            <select class="dept" name="dept">
-                <option value="tester">Tester</option>
-            </select>
-            <div class="modal_button">
-                <button class="cancel ">Cancel</button>
-                <button class="action2 ">Move</button>
+    <div class="modal_background" id="modal_background">
+        <div class="medium_modal modal">
+            <div class="modal_header">
+                <h2>Move staff to other department</h2>
+                <hr>
+            </div>
+            <div class="modal_content">
+                <select class="dept" name="dept">
+                    <option value="tester">Tester</option>
+                </select>
+                <div class="modal_button">
+                    <button class="cancel" id="cancel" onclick='getElementById("modal_background").style.display = "none"'>Cancel</button>
+                    <button class="action2 ">Move</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="big_model">
-        <div class="modal_header">
-            <h2>Move staff of other dept to here</h2>
-            <hr>
-        </div>
-        <div class="modal_content">
-            <select id="dept" name="dept" required>
-                <option value="" disabled selected>Choose department</option>
-                <option value="1">Depvelopement</option>
-                <option value="2">Tester</option>
-                <option value="3">HR</option>
-            </select> 
-            <!-- <div class="search"> -->
-            <input type="search"  class = "searchframe" name="search" placeholder="Search"  style="width: 45%;">
-            <!-- thêm logic điều kiện hiển thị nd sau -->
-                <div class="display">
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th style="width:3%;"><input type="checkbox" class="check-all" ></th>
-                                    <th style="width: 5%;">ID</th>
-                                    <th style="width: 25%;">Name </th>
-                                    <th style="width: 15%;">E-Mail</th>
-                                    <th style="width: 15%;">Role</th>
-                                    <th style="width: 15%;">Status</th>
-                            
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox" class="check"></td>
-                                    <td>1</td>
-                                    <td>Tran A</td>
-                                    <td>abc@gmail.com</td>
-                                    <td>Manager</td>
-                                    <td>
-                                        <label for="status"></label>
-                                        <select class="status" name="status">
-                                          <option value="1">Working</option>
-                                          <option value="2">On leave</option>
-                                          <option value="3">Retired</option>
-                                        </select>    
-                                    </td>
+    <div  class="modal_background" id="modal1">
+        <div class="big_modal modal">
+            <div class="modal_header">
+                <h2>Move staff of other department to here</h2>
+                <hr>
+            </div>
+            <div class="modal_content">
+                <select id="dept" name="dept" required>
+                    <option value="" disabled selected>Choose department</option>
+                    <option value="1">Depvelopement</option>
+                    <option value="2">Tester</option>
+                    <option value="3">HR</option>
+                </select> 
+                <!-- <div class="search"> -->
+                <input type="search"  class = "searchframe" name="search" placeholder="Search"  style="width: 45%;">
+                <!-- thêm logic điều kiện hiển thị nd sau -->
+                    <div class="display">
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width:3%;"><input type="checkbox" class="check-all" onchange="check_status()" ></th>
+                                        <th style="width: 5%;">ID</th>
+                                        <th style="width: 25%;">Name </th>
+                                        <th style="width: 15%;">E-Mail</th>
+                                        <th style="width: 15%;">Role</th>
+                                        <th style="width: 15%;">Status</th>
+                                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" class="check" name="a"></td>
+                                        <td>1</td>
+                                        <td>Tran A</td>
+                                        <td>abc@gmail.com</td>
+                                        <td>Manager</td>
+                                        <td>
+                                            <label for="status"></label>
+                                            <select class="status" name="status">
+                                            <option value="1">Working</option>
+                                            <option value="2">On leave</option>
+                                            <option value="3">Retired</option>
+                                            </select>    
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="check"></td>
+                                        <td>3</td>
+                                        <td>Tran B</td>
+                                        <td>abc@gmail.com</td>
+                                        <td>Sub Manager</td>
+                                        <td>
+                                            <label for="status"></label>
+                                            <select id="status" name="status">
+                                            <option value="1">Working</option>
+                                            <option value="2">On leave</option>
+                                            <option value="3">Retired</option>
+                                            </select>    
+                                        </td>
                                     
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="check"></td>
-                                    <td>3</td>
-                                    <td>Tran B</td>
-                                    <td>abc@gmail.com</td>
-                                    <td>Sub Manager</td>
-                                    <td>
-                                        <label for="status"></label>
-                                        <select id="status" name="status">
-                                          <option value="1">Working</option>
-                                          <option value="2">On leave</option>
-                                          <option value="3">Retired</option>
-                                        </select>    
-                                    </td>
-                                   
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="check"></td>
-                                    <td>10</td>
-                                    <td>Tran C</td>
-                                    <td>abc@gmail.com</td>
-                                    <td>Staff</td>
-                                    <td>
-                                        <label for="status"></label>
-                                        <select id="status" name="status">
-                                          <option value="1">Working</option>
-                                          <option value="2">On leave</option>
-                                          <option value="3">Retired</option>
-                                        </select>    
-                                    </td>
-                                </tr>   
-                            </tbody>
-                        </table>
-                    </div>
-                  <!--   <script>
-                        document.getElementByClass('check-all').onclick = function() {
-  var checkboxes = document.getElementsByClass('check');
-  for (var checkbox of checkboxes) {
-    checkbox.checked = this.checked;
-  }
-}
-                    </script> -->
-                </div>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="check"></td>
+                                        <td>10</td>
+                                        <td>Tran C</td>
+                                        <td>abc@gmail.com</td>
+                                        <td>Staff</td>
+                                        <td>
+                                            <label for="status"></label>
+                                            <select id="status" name="status">
+                                            <option value="1">Working</option>
+                                            <option value="2">On leave</option>
+                                            <option value="3">Retired</option>
+                                            </select>    
+                                        </td>
+                                    </tr>   
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <script type="text/javascript"> 
+                        
+                            function check_status(){
+                                var a=document.getElementsByClassName('check-all');
+                                
+                                if (a[0].checked==true){ 
+                                    
+                                    checkAll()
+                                    console.log("checkbox is checked");
+                                    
+                                }
+                                else {
+                                    deSelect()
+                                    console.log("removed check");
+                                    
+                                }
+                            }
+                        
 
-            <div class="modal_button">
-                <button class="cancel ">Cancel</button>
-                <button class="action2 ">Move</button>
+                            function checkAll(){  
+                                var checked=document.getElementsByClassName('check');  
+                                for(var i=0; i<checked.length; i++){  
+                                    if(checked[i].type=='checkbox')  
+                                    checked[i].checked=true;  
+                                }  
+                                this.onclick = deSelect;
+                            }  
+                            function deSelect(){  
+                                var ele=document.getElementsByClassName('check');  
+                                for(var i=0; i<ele.length; i++){  
+                                    if(ele[i].type=='checkbox')  
+                                        ele[i].checked=false;  
+                                    
+                                }  
+                                this.onclick = checkAll;
+                            }   
+                            
+                        </script>  
+                    </div>
+
+                <div class="modal_button">
+                    <button class="cancel" onclick='getElementById("modal1").style.display = "none"'>Cancel</button>
+                    <button class="action2 ">Move</button>
+                </div>
             </div>
         </div>
     </div>
