@@ -87,7 +87,7 @@
                     <input type="checkbox"  name="expand collapse" value="expand all" class="checkbox" >
                     <label for="expand collapse"> Expand all</label>
                 </span>
-                <button class="add" type="button" name="add">Add department</button>
+                <button class="add" type="button" name="add" onclick='getElementById("modal1").style.display="block"'>Add department</button>
             </div>
             <div>
                 <table>
@@ -100,12 +100,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr id="row">
                             <td>BOD</td>
                             <td>CEO>>Vice Director</td>
                             <td><a href="#" >3</a> </td>
-                            <td><button class="edit" type="button">Edit</button>　<button class="delete" type="button">Delete</button></td>
-                            <!--chưa set name cho button-->
+                            <td><button class="edit" type="button">Edit</button>　<button class="delete" id ="delete" type="button" onclick='check()'>Delete</button></td>
+                           <script>function check(){
+                           window.confirm('aaaaok?');
+                           if(true){
+                           getElementById("row").style.display="none";
+                           }
+                           } </script>
                         </tr>
                         <tr>
                             <td>Development</td>
@@ -122,6 +127,8 @@
                     </tbody>
                 </table>
             </div>
+            <div class = "modal_background" id="modal1">
+            
             <div class="big_modal">
                 <div class = "modal_header">
                     <h2 class = "modal_title">Add department</h2>
@@ -155,7 +162,7 @@
                         <button class="add" style="float: right;">add next level</button> <br>
 
                         <div class="modal_button">
-                            <button class="cancel ">Cancel</button>
+                            <button class="cancel" onclick='getElementById("modal1").style.display="none"'>Cancel</button>
                             <button class="save ">Save</button>
                         </div>
                     
@@ -164,6 +171,8 @@
                 </div>
 
 
+            </div>
+            
             </div>
             <div class="medium_modal">
                 <div class="modal_header">
@@ -184,4 +193,3 @@
     </div>
 </body>
 </html>
-
