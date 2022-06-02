@@ -7,9 +7,28 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../CommonCSS/button.css">
 </head>
+<style>
+    html {
+  background: url(../istockphoto-864811534-612x612.jpg) no-repeat center fixed;
+  background-size: cover;
+  color: white;
+  text-align:right;
+}
+button {
+    float: right;
+}
+h3.clearfix::after {
+content: "";
+display: block;
+clear: both;
+}
+</style>
 <body>
-    <h1>Employee management system</h1>
-    <label >Use email @zinza.com.vn to login</label>
-    <button class="login"> Login </button>
+    <h1>Welcome to employee management system</h1>
+    <div>
+    <h3 class='clearfix' >Use email @zinza.com.vn to login</h3>
+    
+    <button  class="login"> Login </button>
+</div>
 </body>
 </html>

@@ -7,101 +7,206 @@
     <title>Document</title>
 
     <style> 
+         <style>
         * {
-            padding: 0;
             margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
-        .container {
-            width: 402px;
-            height: 402px;
-            border: 1px solid red;
-            margin: 0 auto;
-            position: relative;
+        .page-layout {
+            width: 100%;
         }
 
-        .container .cell {
-            width: 100px;
-            height: 100px;
-            border: 1px solid orange;
+        .page-layout header {
+            background-color: olive;
+            color: #FFF;
+            height: 200px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .page-layout footer {
+            background-color: orange;
+            color: #FFF;
+            height: 200px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            width: 100%;
+            list-style: none;
+            background-color: antiquewhite;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a{
+            display: block;
+            padding: 0;
+            background-color: antiquewhite;
+            color: green;
+        }
+
+        .content {
+            width: 100%;
+            display: flex;
+            min-height: 600px;
+        }
+
+        .content aside.sidebar-left {
+            width: 25%;
+            background-color: bisque;
+            order: 1;
+        }
+
+        .content aside.sidebar-right {
+            width: 25%;
+            background-color: bisque;
+            order: 3;
+        }
+
+        .content main {
+            width: 50%;
+            background-color: olivedrab;
+            order: 2;
+        }
+
+        main h1 {
+            text-align: center;
+        }
+
+        main .services {
+            display: flex;
+            min-height: 200px;
+            background-color: orange;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        main .services .service-item {
+            width: 23%;
+            background-color: aqua;
+        }
+
+        @media  screen and (min-width: 320px) and (max-width:767px){
+            nav ul {
+                display: flex;
+                flex-direction: column;
+        
+            }
+            .content{
+                flex-direction: column;
+
+            }
+            main .services{
+                flex-direction: column;
+            }
+            main .services .service-item {
+            width: 100%;
+            background-color: aqua;
+        }
+            .content aside.sidebar-left, .content aside.sidebar-right, .content main{
+                width:100%;
+            }
+
+        }
+
+        @media  screen and (min-width: 768px) and (max-width:1199px){
+            nav ul, .content {
+                display: flex;
+                flex-direction: column;
+        
+            }
             
-            
-        }
+            main .services{
+                flex-direction: row;
+                flex-wrap:wrap;
 
-        .cell1 {
-            background-color: black;
-            color: white;
-        }
+            }
+            .content aside.sidebar-left, .content aside.sidebar-right, .content main{
+                width:100%;
+            }
 
-        .cell3 {
-            background-color: black;
-            color: white;
+            main .services .service-item {
+            width: 50%;
+            background-color: aqua;
         }
-
-        .cell5 {
-            position: absolute;
-            top :0;
-            left :100px;
-        }
-        .cell6 {
-            position: absolute;
-            top :100px;
-            left :100px;
-            background-color: black;
-            color: white;
-        }
-        .cell7 {
-            position: absolute;
-            top :200px;
-            left :100px;
-        }
-        .cell8 {
-            position: absolute;
-            bottom :0px;
-            left :100px;
-            background-color: black;
-            color: white;
-        }
-        .cell10 {
-            position: absolute;
-            top :100px;
-            left :200px;
-        }
-        .cell9 {
-            position: absolute;
-            top :0px;
-            left :200px;
-            background-color: black;
-            color: white;
         }
     </style>
 </head>
 <body>
-
-    <p>When you submit the form, a function is triggered which alerts some text.</p>
     
-    <form action="/action_page.php" onsubmit="myFunction()">
-      Enter name: <input type="text" name="fname" id="name" onfocusout="checkrequired()">
-      <span id="validate-hoten" style="color: red;"></span>
 
-      Note:  <textarea name="ghichu"></textarea>
-      <span id="validate-hoten" style="color: red;"></span>
+    <div class="page-layout">
+        <header>
+            <h1>Logo trang web</h1>
 
-      <input type="submit" value="Submit">
-    </form>
-    
-    <script>
-        function checkrequired(){
-            var a= document.getElementById("name").value;
-            if (a =""){
-                document.getElementById("validate-hoten").innerHTML="plz input name";
-            }
-        }
-    function myFunction3() {
-      alert("The form was submitted");
-    }
-    </script>
-    
-    </body>
+            <pre>
+                mobile : 320 - 767px 
+                table : 768px - 1199px
+                laptop : 1200px - 1600px 
+                PC : 1601px - vô cực 
+            </pre>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="">Trang chủ</a></li>
+                <li><a href="">Sản phẩm</a></li>
+                <li><a href="">Liên hệ</a></li>
+                <li><a href="">Đối tác</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <aside class="sidebar-left">
+                <section>Vùng sidebar 1</section>
+                <section>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius similique eligendi beatae fugit laudantium ipsa libero, nesciunt iste culpa molestiae ratione. Nam incidunt aperiam pariatur error totam accusamus tempora deleniti?</p>
+                </section>
+            </aside>
+
+            <aside class="sidebar-right">
+                <section>Vùng sidebar 2</section>
+                <section>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius similique eligendi beatae fugit laudantium ipsa libero, nesciunt iste culpa molestiae ratione. Nam incidunt aperiam pariatur error totam accusamus tempora deleniti?</p>
+                </section>
+            </aside>
+
+            <main class="main-content">
+                <h1>Services</h1>
+                <section class="services">
+                    <div class="service-item">
+                        <h3>IT soft</h3>
+                    </div>
+                    <div class="service-item">
+                        <h3>IT hardware</h3>
+                    </div>
+                    <div class="service-item">
+                        <h3>IT helpdesk</h3>
+                    </div>
+                    <div class="service-item">
+                        <h3>IT ...</h3>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae inventore totam voluptas, necessitatibus deleniti, adipisci saepe veniam, animi repudiandae minima aperiam. Rem numquam sed harum beatae deleniti, maxime exercitationem aspernatur?</p>
+                
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae inventore totam voluptas, necessitatibus deleniti, adipisci saepe veniam, animi repudiandae minima aperiam. Rem numquam sed harum beatae deleniti, maxime exercitationem aspernatur?</p>
+                </section>
+
+            </main>
+        </div> <!-- end .content -->
+
+        <footer>
+            <h5>copyright @ 2022</h5>
+        </footer>
+    </div>
+
+   
+</body>
 </html>

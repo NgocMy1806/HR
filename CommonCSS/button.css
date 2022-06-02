@@ -1,8 +1,12 @@
-button {
+button, a.button {
     border-radius: 5px;
     padding: 5px 10px;
-    background-color: transparent;
+    /* background-color: transparent; */
     border:1px;
+}
+a.button{
+    text-decoration: none;
+  display: inline-block;
 }
 .add {
     background-color: #166af0;
@@ -46,10 +50,12 @@ button {
 }
 
 .action2 {
-    background-color: #a3e6d0;
-    
+    background-color: #bb460e;
+    color: white;    
 }
 
 .logout {
     background: white;
+    padding: 12px 16px;
+    display: block;
 }

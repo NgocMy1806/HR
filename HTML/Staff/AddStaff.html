@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,123 +11,100 @@
     <link rel="stylesheet" href="../../CommonCSS/CommonElement.css">
     <style>
        
-        *{
-            margin: 5px;
-        }
         div {
             margin: 5px 5px 5px 5px;
         }
-        header {
-            width:100%;
-            position: fixed;
-            height:50px;
-            display: block;
-            top:0;
-            background-color: #407df7;
-            z-index: 50;
-        }    
-        
-        /* .dropdown:hover .dropdown_content {
-            display: block;
-        
-        } */
-
-        .dropdown:hover  .logout {
-            display: block;
-        
-        }
-        
-        .dropdown{
-            position: relative;
-            width: 300px;
-            float: right;
-        }
-         .logout{
-            display: none;
-            position: absolute;
-            right:0;
-            top: 100%;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            padding: 12px 16px;
-            z-index: 1;
-        }
-        
-
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/19737dc617.js" crossorigin="anonymous"></script>
+    <script src="../../JS/openClose.js"></script>
 </head>
+
 <body>
     <header class="pageheader">
-        <div class="dropdown" >
-           <i class="fa-solid fa-user ava" id="ava" style="float: right;" onclick='document.getElementsByClassName("logout").style.display="inline-block"'>user name</i> 
-            <div class="dropdown_content"> 
-                <button class="logout" style="display: none;"> Logout</button> </div>
-           </div>
-        <script>
-            /* document.getElementsByClassName("ava").onclick=document.getElementsByClassName("logout").style.display="inline-block"; */
-            document.getElementsByClassName("ava").onclick=document.getElementsByClassName("L1").innerHTML="red";
-        </script>
+        <div class="dropdown_ava">
+            <i class="fa-solid fa-user ava" id="ava" style="float: right;cursor: pointer;">user name</i>
+            <div class="dropdown_content" id="dropdown_content" style="display: none;">
+                <button class="logout" id="logout"> Logout</button>
+            </div>
+        </div>
 
     </header>
-    <div class="formadd" style="width: 100%;">
-    <form action="/action_page.php" method ="post">
-        <label class="L1 required" for="lastname">Lastname</label>
-        <input type="text" class="long_field" id="lastname" name="lastname" required autofocus><br>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <nav>
+                <ul>
+                    <li><a class="nav active" id="listStaff" href="../Staff/ListStaff.html">List staff</a></li>
+                    <li><a class="nav" href="../Role/ListRole.html">List role</a></li>
+                    <li><a class="nav " id="listDept" href="../Dept/ListDept.html">List department</a> </li>
+                </ul>
+            </nav>
+        </div>
+        <div class=" content_area">
+            <div class="formadd" >
+                <form action="/action_page.php" method="post">
+                    <h2 class="modal_title">Add staff</h2>
+                        <hr>
+                    <label class="L1 required" for="lastname">Lastname</label>
+                    <input type="text" class="long_field" id="lastname" name="lastname" required autofocus><br>
 
-        <label class="L1 required" for="firstname">Firstname</label>
-        <input type="text"  class="long_field" id="firstname" name="firstname" required><br>
+                    <label class="L1 required" for="firstname">Firstname</label>
+                    <input type="text" class="long_field" id="firstname" name="firstname" required><br>
 
-        <label class="L1 required" for="gender">Gender</label>
-        <input type="radio" id="gender" name="gender" value="1" required> 
-        <label for="gender">Male</label>
-        <input type="radio" id="gender" name="gender" value="2" required>
-        <label for="gender">Female</label><br>
+                    <label class="L1 required" for="gender">Gender</label>
+                    <input type="radio" id="gender" name="gender" value="1" required>
+                    <label for="gender">Male</label>
+                    <input type="radio" id="gender" name="gender" value="2" required>
+                    <label for="gender">Female</label><br>
 
-        <label class="L1 required"  for="dateofbirth">Date of birth</label>
-        <input type="date"   class="long_field" id="dateofbirth" name="dateofbirth" required><br>
+                    <label class="L1 required" for="dateofbirth">Date of birth</label>
+                    <input type="date" class="long_field" id="dateofbirth" name="dateofbirth" required><br>
 
-        <label class="L1 required" for="address">Address</label>
-        <input type="text"  class="long_field" id="address" name="address" required><br>
+                    <label class="L1 required" for="address">Address</label>
+                    <input type="text" class="long_field" id="address" name="address" required><br>
 
-        <label class="L1 required" for="email">E-mail</label>
-        <input type="email" class="long_field"  id="email" name="email" required><br>
+                    <label class="L1 required" for="email">E-mail</label>
+                    <input type="email" class="long_field" id="email" name="email" required><br>
 
-        <label class="L1 required" for="phone">Phone number</label>
-        <input type="tel"  class="long_field" id="phone" name="phone" required><br>
+                    <label class="L1 required" for="phone">Phone number</label>
+                    <input type="tel" class="long_field" id="phone" name="phone" required><br>
 
-        <label class="L1 required" for="status">Status</label>
-            <select class="long_field"  id="status" name="status" required>
-                <option value="1">Working</option>
-                <option value="2">On leave</option>
-                <option value="3">Retired</option>
-            </select> <br>   
-        
-        <label class="L1 required" for="dept">Department</label>
-            <select  class="long_field" id="dept" name="dept" required>
-                <option value="" disabled selected>Choose department</option>
-                <option value="1">Depvelopement</option>
-                <option value="2">Tester</option>
-                <option value="3">HR</option>
-            </select>   <br>
-        
-        <label class="L1 required" for="role">Role</label>
-            <select  class="long_field" id="role" name="role" required>
-                <option value="" disabled selected>Choose role</option>
-                <option value="1">Working</option>
-                <option value="2">On leave</option>
-                <option value="3">Retired</option>
-            </select>   <br>
-        
-        <label class="L1" for="avatar">Avatar</label>
-        <input type="file"   id="avatar" name="avatar" required><br>
-        
+                    <label class="L1 required" for="status">Status</label>
+                    <select class="long_field" id="status" name="status" required>
+                        <option value="1">Working</option>
+                        <option value="2">On leave</option>
+                        <option value="3">Retired</option>
+                    </select> <br>
 
-        <button class="submit">Submit</button>
-       
-      </form>
+                    <label class="L1 required" for="dept">Department</label>
+                    <select class="long_field" id="dept" name="dept" required>
+                        <option value="" disabled selected>Choose department</option>
+                        <option value="1">Depvelopement</option>
+                        <option value="2">Tester</option>
+                        <option value="3">HR</option>
+                    </select> <br>
+
+                    <label class="L1 required" for="role">Role</label>
+                    <select class="long_field" id="role" name="role" required>
+                        <option value="" disabled selected>Choose role</option>
+                        <option value="1">Working</option>
+                        <option value="2">On leave</option>
+                        <option value="3">Retired</option>
+                    </select> <br>
+
+                    <label class="L1" for="avatar">Avatar</label>
+                    <input type="file" id="avatar" name="avatar" required><br>
+
+
+                    <button class="submit">Submit</button>
+
+                </form>
+            </div>
+        </div>
     </div>
 
-    
-    
+
+
 </body>
+
 </html>
