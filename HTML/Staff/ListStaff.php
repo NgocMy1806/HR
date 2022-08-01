@@ -161,7 +161,10 @@ $staffs = $statement->fetchAll(PDO::FETCH_ASSOC);
                                            
                                         </td>
                                     </tr>
-                            
+                                    <?php
+            }
+        }
+        ?>
                     
                     
                             </tbody>

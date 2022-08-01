@@ -1,3 +1,11 @@
+<?php
+include_once "connect.php";
+
+$sql = 'SELECT * FROM roles where deleted_at is null  ORDER BY created_at DESC';
+$statement = $pdo->query($sql);
+$roles = $statement->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,10 +21,9 @@
     <script src="https://kit.fontawesome.com/19737dc617.js" crossorigin="anonymous"></script>
     <script src="../../JS/openClose.js"></script>
     <style>
-          div {
+        div {
             margin: 5px 5px 5px 5px;
         }
-
     </style>
 </head>
 
@@ -46,10 +53,9 @@
                 <button type="button" class="searchbutton" name="searchbutton">Search</button>
             </div>
             <div>
-                <form style="width:100%; margin: 10px auto ">
-                   
-                    <input type="text" name="rolename" required placeholder="Input role name"
-                        style="display:inline;width: 70%;">
+                <form style="width:100%; margin: 10px auto" method="POST">
+
+                    <input type="text" name="rolename" required placeholder="Input role name" style="display:inline;width: 70%;">
                     <button type="button" class="add " style="display: inline; float:right;">Add role</button>
                 </form>
             </div>
@@ -62,25 +68,43 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>CEO</td>
-                            <td><button class="delete">Delete</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Manager</td>
-                            <td><button class="delete">Delete</button> </td>
-                        </tr>
-                        <tr>
-                            <td>Staff</td>
-                            <td><button class="delete">Delete</button> </td>
-                        </tr>
-                        <tr>
-                            <td>V.Manager</td>
-                            <td><button class="delete">Delete</button> </td>
-                        </tr>
+                        <?php
+                        if (is_array($roles) && !empty($roles)) {
+                            foreach ($roles as $role) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $role['rolename'] ?></td>
+                                    <td>
+                                        <a href="edit.php?id=<?php echo $book['book_id'] ?>" class="btn btn-warning">Edit</a>
+                                        <a href="delete.php?id=<?php echo $role['id'] ?>" class="button delete">Delete</a>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
+
                     </tbody>
                 </table>
             </div>
+
+            <!-- double click role name to edit -->
+            <script>
+                document.querySelectorAll("table tr:nth-child(2) td").forEach(function(node) {
+                    node.ondblclick = function() {
+                        var val = this.innerHTML;
+                        var input = document.createElement("input");
+                        input.value = val;
+                        input.onblur = function() {
+                            var val = this.value;
+                            this.parentNode.innerHTML = val;
+                        }
+                        this.innerHTML = "";
+                        this.appendChild(input);
+                        input.focus();
+                    }
+                });
+            </script>
         </div>
     </div>
     </div>
