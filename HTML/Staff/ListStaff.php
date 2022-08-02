@@ -1,3 +1,12 @@
+<?php
+include_once "connect.php";
+
+$sql = 'SELECT s.id, s.lastname, s.firstname, s.email, d.deptname, r.rolename FROM staffs as s LEFT JOIN departments as d ON s.dept_id = d.id  LEFT JOIN roles as r ON s.role_id=r.id where s.status = 1 ORDER BY s.created_at DESC';
+$statement = $pdo->query($sql);
+$staffs = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,7 +135,41 @@
 
                             </tr>
                         </thead>
+                        
                         <tbody>
+                            <?php
+                            if (is_array($staffs) && !empty($staffs)) {
+                                foreach ($staffs as $staff) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $staff['id'] ?></td>
+                                        <td a href="ViewStaff.php?id=<?php echo $staff['id'] ?>"><?php echo $staff['lastname']." ".$staff['firstname'] ?></td>
+                                        <td><?php echo $staff['email'] ?></td>
+                                        <td><?php echo $staff['book_created'] ?></td>
+                                        <td><?php echo $staff['deptname'] ?></td>
+                                        <td><?php echo $staff['rolename'] ?></td>  
+                                        <!-- viết thế này có lấy dc rolename ko nhỉ -->
+                                        <td>
+                                            <label for="status"></label>
+                                            <select class="status" name="status" >
+                                                <option value="1" selected>Working</option>
+                                                <option value="2">On leave</option>
+                                                <option value="3">Retired</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                           
+                                        </td>
+                                    </tr>
+                                    <?php
+            }
+        }
+        ?>
+                    
+                    
+                            </tbody>
+                        </table>
+
                             <tr>
                                 <td>1</td>
                                 <td>Tran A</td>

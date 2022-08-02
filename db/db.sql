@@ -2,6 +2,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+CREATE DATABASE hr;
+
 CREATE TABLE roles (
     id int not null AUTO_INCREMENT,
     rolename varchar(255),
@@ -35,10 +37,10 @@ CREATE TABLE staffs (
     firstName varchar(255),
     gender TINYINT (2),
     bday date,
-    address varchar(255),
+    staff_address varchar(255),
     email varchar(255),
     phone int, 
-    status TINYINT,
+    staff_status TINYINT,
     dept_id int ,
     role_id int ,
     avatar varchar (255), 
